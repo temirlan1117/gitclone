@@ -87,7 +87,7 @@ def main():
             chrome_options = Options()
             chrome_options.add_argument(f'--user-agent={user_agent}')
 
-            service = Service('D:\games\pythonProject\chromedriver')
+            service = Service('C:\soft\chromedriver2\chromedriver-win64\chromedriver.exe')
             driver = webdriver.Chrome(service=service, options=chrome_options)
             driver.maximize_window()
             wait = WebDriverWait(driver, 10)
@@ -151,7 +151,7 @@ def main():
             final_opinion = generate_unique_opinion(final_prompt)
             wait.until(EC.presence_of_element_located(
                 (By.XPATH, '//*[@id="_builder-form"]/div/div[1]/div/div/textarea'))).send_keys(final_opinion)
-            time.sleep(1)
+            time.sleep(2)
 
             # Отметка согласия
             element_to_click = driver.find_element(By.XPATH,
@@ -163,7 +163,7 @@ def main():
             wait.until(EC.element_to_be_clickable(
                 (By.XPATH, '//*[@id="_builder-form"]/div/div[5]/div/div/div/button'))).click()
 
-            time.sleep(5)
+            time.sleep(6)
 
             wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="copy"]')))
             unique_code_url = driver.current_url
